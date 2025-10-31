@@ -15,10 +15,11 @@ defmodule OrdersTest do
     assert result.tax == 23.84
     assert result.total == 127.52
 
-    assert Enum.at(result.items, 0).net_total == 66.66
-    assert Enum.at(result.items, 0).total == 81.99
-    assert Enum.at(result.items, 1).net_total == 37.02
-    assert Enum.at(result.items, 1).total == 45.53
+    [first_item, second_item] = result.items
+    assert first_item.net_total == 66.66
+    assert first_item.total == 81.99
+    assert second_item.net_total == 37.02
+    assert second_item.total == 45.53
   end
 
   test "simple case with whole numbers" do
@@ -34,10 +35,11 @@ defmodule OrdersTest do
     assert result.tax == 57.5
     assert result.total == 307.5
 
-    assert Enum.at(result.items, 0).net_total == 200.0
-    assert Enum.at(result.items, 0).total == 246.0
-    assert Enum.at(result.items, 1).net_total == 50.0
-    assert Enum.at(result.items, 1).total == 61.5
+    [first_item, second_item] = result.items
+    assert first_item.net_total == 200.0
+    assert first_item.total == 246.0
+    assert second_item.net_total == 50.0
+    assert second_item.total == 61.5
   end
 
   test "zero tax" do
@@ -53,8 +55,9 @@ defmodule OrdersTest do
     assert result.tax == 0.0
     assert result.total == 41.0
 
-    assert Enum.at(result.items, 0).total == 30.0
-    assert Enum.at(result.items, 1).total == 11.0
+    [first_item, second_item] = result.items
+    assert first_item.total == 30.0
+    assert second_item.total == 11.0
   end
 
   test "empty" do
@@ -67,7 +70,7 @@ defmodule OrdersTest do
     assert result.total == 0.0
   end
 
-  test "sum of lines and tax relatio" do
+  test "sum of lines and tax relation" do
     items = [
       %OrderItem{net_price: 33.33, quantity: 2},
       %OrderItem{net_price: 12.34, quantity: 3}

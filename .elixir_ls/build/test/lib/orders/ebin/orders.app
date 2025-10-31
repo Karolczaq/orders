@@ -1,9 +1,0 @@
-{application,orders,
-             [{modules,['Elixir.Orders.Order',
-                        'Elixir.Orders.OrderCalculation',
-                        'Elixir.Orders.OrderItem']},
-              {optional_applications,[]},
-              {applications,[kernel,stdlib,elixir,logger]},
-              {description,"orders"},
-              {registered,[]},
-              {vsn,"0.1.0"}]}.

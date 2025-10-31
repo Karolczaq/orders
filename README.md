@@ -1,21 +1,18 @@
-# Orders
+## 1. Jakiego typu danych użyjesz do przechowywania poszczególnych wartości w bazie danych?
 
-**TODO: Add description**
+### Order
 
-## Installation
+| Kolumna   | Opis                      | Typ SQL       |
+| --------- | ------------------------- | ------------- |
+| net_total | wartość netto zamówienia  | NUMERIC(10,2) |
+| tax       | całkowita kwota podatku   | NUMERIC(10,2) |
+| total     | wartość brutto zamówienia | NUMERIC(10,2) |
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `orders` to your list of dependencies in `mix.exs`:
+### Order Item
 
-```elixir
-def deps do
-  [
-    {:orders, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/orders>.
-
+| Kolumna   | Opis                       | Typ SQL       |
+| --------- | -------------------------- | ------------- |
+| net_price | cena netto 1 sztuki towaru | NUMERIC(10,2) |
+| quantity  | ilość sztuk                | INTEGER       |
+| net_total | wartość netto pozycji      | NUMERIC(10,2) |
+| total     | wartość brutto pozycji     | NUMERIC(10,2) |
